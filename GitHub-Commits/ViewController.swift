@@ -9,19 +9,20 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    // MARK: - RETURN VALUES
+    
+    class func loadFromNib() -> ViewController {
+        let storyboard = NSStoryboard(name: .init(rawValue: "Main"), bundle: Bundle.main)
+        
+        return storyboard.instantiateController(withIdentifier: .init(rawValue: "ViewController")) as! ViewController
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
+    
+    // MARK: - VOID METHODS
+    
+    // MARK: - IBACTIONS
+    
+    // MARK: - LIFE CYCLE
 
 }
 

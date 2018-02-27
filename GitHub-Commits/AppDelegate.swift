@@ -11,10 +11,32 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let popover: NSPopover = {
+        var pop = NSPopover()
+        pop.contentViewController = ViewController.loadFromNib()
+        
+        return pop
+    }()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        if let button = statusItem.button {
+            button.image = #imageLiteral(resourceName: "checkbox-none")
+            button.action = #selector(showMenu(sender:))
+        }
+    }
+    
+    @objc func showMenu(sender: NSStatusBarButton) {
+        if popover.isShown {
+            popover.performClose(nil)
+        } else {
+            popover.show(
+                relativeTo: sender.bounds,
+                of: sender,
+                preferredEdge: .minY
+            )
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
