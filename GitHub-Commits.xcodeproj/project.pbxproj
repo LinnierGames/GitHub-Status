@@ -11,7 +11,7 @@
 		E9AA00042045135D0025EC29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9AA00022045135D0025EC29 /* Main.storyboard */; };
 		E9AA00102045135D0025EC29 /* GitHub_CommitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA000F2045135D0025EC29 /* GitHub_CommitsTests.swift */; };
 		E9AA001B2045135D0025EC29 /* GitHub_CommitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA001A2045135D0025EC29 /* GitHub_CommitsUITests.swift */; };
-		E9AA0029204519EA0025EC29 /* EventStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA0028204519EA0025EC29 /* EventStack.swift */; };
+		E9AA002B20451B520025EC29 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA002A20451B520025EC29 /* EventMonitor.swift */; };
 		E9AAFFFD2045135D0025EC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAFFFC2045135D0025EC29 /* AppDelegate.swift */; };
 		E9AAFFFF2045135D0025EC29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAFFFE2045135D0025EC29 /* ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +44,7 @@
 		E9AA00162045135D0025EC29 /* GitHub-CommitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHub-CommitsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AA001A2045135D0025EC29 /* GitHub_CommitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_CommitsUITests.swift; sourceTree = "<group>"; };
 		E9AA001C2045135D0025EC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9AA0028204519EA0025EC29 /* EventStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStack.swift; sourceTree = "<group>"; };
+		E9AA002A20451B520025EC29 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		E9AAFFF92045135D0025EC29 /* GitHub-Commits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub-Commits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AAFFFC2045135D0025EC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9AAFFFE2045135D0025EC29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 			children = (
 				E9AAFFFC2045135D0025EC29 /* AppDelegate.swift */,
 				E9AAFFFE2045135D0025EC29 /* ViewController.swift */,
-				E9AA0028204519EA0025EC29 /* EventStack.swift */,
+				E9AA002A20451B520025EC29 /* EventMonitor.swift */,
 				E9AA00002045135D0025EC29 /* Assets.xcassets */,
 				E9AA00022045135D0025EC29 /* Main.storyboard */,
 				E9AA00052045135D0025EC29 /* Info.plist */,
@@ -276,9 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AA002B20451B520025EC29 /* EventMonitor.swift in Sources */,
 				E9AAFFFF2045135D0025EC29 /* ViewController.swift in Sources */,
 				E9AAFFFD2045135D0025EC29 /* AppDelegate.swift in Sources */,
-				E9AA0029204519EA0025EC29 /* EventStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

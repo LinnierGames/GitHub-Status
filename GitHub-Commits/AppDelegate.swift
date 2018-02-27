@@ -18,6 +18,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         return pop
     }()
+    
+    lazy var dismissEvent: EventMonitor = {
+        var event = EventMonitor(mask: [.leftMouseUp, .rightMouseUp]) { [weak self] (event) in
+            self?.closePopover()
+        }
+        
+        return event
+    }()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -29,14 +37,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func showMenu(sender: NSStatusBarButton) {
         if popover.isShown {
-            popover.performClose(nil)
+            closePopover()
         } else {
-            popover.show(
-                relativeTo: sender.bounds,
-                of: sender,
-                preferredEdge: .minY
-            )
+            showPopover()
         }
+    }
+    
+    func showPopover() {
+        guard let button = statusItem.button else { return }
+        
+        popover.show(
+            relativeTo: button.bounds,
+            of: button,
+            preferredEdge: .minY
+        )
+        dismissEvent.beginMonitoring()
+    }
+    
+    func closePopover() {
+        popover.performClose(nil)
+        dismissEvent.terminateMonitoring()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
