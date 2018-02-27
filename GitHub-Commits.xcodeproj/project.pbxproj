@@ -12,6 +12,10 @@
 		E9AA00102045135D0025EC29 /* GitHub_CommitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA000F2045135D0025EC29 /* GitHub_CommitsTests.swift */; };
 		E9AA001B2045135D0025EC29 /* GitHub_CommitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA001A2045135D0025EC29 /* GitHub_CommitsUITests.swift */; };
 		E9AA002B20451B520025EC29 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA002A20451B520025EC29 /* EventMonitor.swift */; };
+		E9AA002D20451D280025EC29 /* GitHubStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA002C20451D280025EC29 /* GitHubStack.swift */; };
+		E9AA002F20451DB50025EC29 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA002E20451DB50025EC29 /* User.swift */; };
+		E9AA003120451E230025EC29 /* PersistanceStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA003020451E230025EC29 /* PersistanceStack.swift */; };
+		E9AA003320451ED60025EC29 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA003220451ED60025EC29 /* ViewModel.swift */; };
 		E9AAFFFD2045135D0025EC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAFFFC2045135D0025EC29 /* AppDelegate.swift */; };
 		E9AAFFFF2045135D0025EC29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAFFFE2045135D0025EC29 /* ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +49,10 @@
 		E9AA001A2045135D0025EC29 /* GitHub_CommitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_CommitsUITests.swift; sourceTree = "<group>"; };
 		E9AA001C2045135D0025EC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9AA002A20451B520025EC29 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		E9AA002C20451D280025EC29 /* GitHubStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStack.swift; sourceTree = "<group>"; };
+		E9AA002E20451DB50025EC29 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E9AA003020451E230025EC29 /* PersistanceStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceStack.swift; sourceTree = "<group>"; };
+		E9AA003220451ED60025EC29 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E9AAFFF92045135D0025EC29 /* GitHub-Commits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub-Commits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AAFFFC2045135D0025EC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9AAFFFE2045135D0025EC29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,8 +125,12 @@
 			isa = PBXGroup;
 			children = (
 				E9AAFFFC2045135D0025EC29 /* AppDelegate.swift */,
+				E9AA003220451ED60025EC29 /* ViewModel.swift */,
 				E9AAFFFE2045135D0025EC29 /* ViewController.swift */,
 				E9AA002A20451B520025EC29 /* EventMonitor.swift */,
+				E9AA002C20451D280025EC29 /* GitHubStack.swift */,
+				E9AA003020451E230025EC29 /* PersistanceStack.swift */,
+				E9AA002E20451DB50025EC29 /* User.swift */,
 				E9AA00002045135D0025EC29 /* Assets.xcassets */,
 				E9AA00022045135D0025EC29 /* Main.storyboard */,
 				E9AA00052045135D0025EC29 /* Info.plist */,
@@ -276,9 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AA003120451E230025EC29 /* PersistanceStack.swift in Sources */,
 				E9AA002B20451B520025EC29 /* EventMonitor.swift in Sources */,
+				E9AA002D20451D280025EC29 /* GitHubStack.swift in Sources */,
 				E9AAFFFF2045135D0025EC29 /* ViewController.swift in Sources */,
+				E9AA002F20451DB50025EC29 /* User.swift in Sources */,
 				E9AAFFFD2045135D0025EC29 /* AppDelegate.swift in Sources */,
+				E9AA003320451ED60025EC29 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +435,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "GitHub-Commits/GitHub_Commits.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8U3L6K9JA6;
@@ -435,7 +450,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "GitHub-Commits/GitHub_Commits.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8U3L6K9JA6;

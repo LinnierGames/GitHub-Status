@@ -10,6 +10,8 @@ import Cocoa
 
 class ViewController: NSViewController {
     
+    private var viewModel = ViewControllerModel()
+    
     // MARK: - RETURN VALUES
     
     class func loadFromNib() -> ViewController {
@@ -20,9 +22,25 @@ class ViewController: NSViewController {
     
     // MARK: - VOID METHODS
     
+    private func updateUI() {
+        
+    }
+    
     // MARK: - IBACTIONS
     
     // MARK: - LIFE CYCLE
-
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        if viewModel.isLoggedIn() {
+            viewModel.collectProfileStats { [weak self] in
+                self?.updateUI()
+            }
+        } else {
+            PersistanceStack.username = "LinnierGames"
+            self.viewWillAppear()
+        }
+    }
 }
 
