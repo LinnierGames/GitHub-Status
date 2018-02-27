@@ -10,19 +10,17 @@ import Foundation
 
 struct ViewControllerModel {
     
-    private lazy var github: GitHubStack = {
-        return GitHubStack(completion: self.didFetch)
-    }()
+    private var github = GitHubStack()
     
-    private func didFetch(_ profile: Profile) {
-        
+    var username: String? {
+        return PersistanceStack.username
     }
     
     func isLoggedIn() -> Bool {
-        return PersistanceStack.username != nil
+        return username != nil
     }
     
-    mutating func collectProfileStats(completionHandler: @escaping () -> ()) {
-        github.updateStats()
+    mutating func collectProfileStats(completionHandler: @escaping (Profile) -> ()) {
+        github.updateStats(completion: completionHandler)
     }
 }

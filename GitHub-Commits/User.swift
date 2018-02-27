@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import Cocoa
 
 struct Profile {
     var username: String
     var numberOfCommits: Int?
+    var currentCommmitColor: NSColor
 }
