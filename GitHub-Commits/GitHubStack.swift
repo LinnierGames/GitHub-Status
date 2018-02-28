@@ -37,14 +37,18 @@ struct GitHubStack {
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let stringDate = dateFormatter.string(from: Date()) as NSString
                 
-                guard let profileStatus = NSString.pharseHtml(from: htmlString as String, searchingFor: stringDate) else {
-                    return print("failed to get status from html")
-                }
-                
-                let profile = Profile(username: username, numberOfCommits: profileStatus.nCommits, currentCommmitColor: profileStatus.color)
-                
-                DispatchQueue.main.async {
-                    completion(profile)
+                if let profileStatus = NSString.pharseHtml(from: htmlString as String, searchingFor: stringDate) { //If a commit was made for today
+                    let profile = Profile(username: username, numberOfCommits: profileStatus.nCommits, currentCommmitColor: profileStatus.color)
+                    
+                    DispatchQueue.main.async {
+                        completion(profile)
+                    }
+                } else {
+                    let profile = Profile(username: username, numberOfCommits: 0, currentCommmitColor: NSColor(deviceWhite: 1.0, alpha: 1.0))
+                    
+                    DispatchQueue.main.async {
+                        completion(profile)
+                    }
                 }
             }).resume()
         }
