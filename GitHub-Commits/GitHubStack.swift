@@ -60,7 +60,7 @@ extension NSString {
         var stats: (NSColor, Int)? = nil
         
         htmlString.enumerateLines { (aString, unsafePointer) in
-            if aString.contains(dateString as String) {
+            if aString.contains("data-date=\"\(dateString)\"" as String) {
                 
                 let commits: Int
                 /** Commits */
@@ -68,9 +68,13 @@ extension NSString {
                     let regex = try! NSRegularExpression(pattern: "data-count=\"(\\d+)\"" as String)
                     let results = regex.matches(in: aString,
                                                 range: NSRange(aString.startIndex..., in: aString))
-                    commits = results.map {
-                        Int(aString[Range($0.range(at: 1), in: aString)!])!
-                        }.first!
+                    if let nCommits = results.map({ (result) -> Int in
+                        Int(aString[Range(result.range(at: 1), in: aString)!])!
+                    }).first { //a number of commits was found
+                        commits = nCommits
+                    } else { //default number
+                        commits = 0
+                    }
                 }
                 
                 let color: String
@@ -79,9 +83,13 @@ extension NSString {
                     let regex = try! NSRegularExpression(pattern: "fill=\"#(.{6})\"" as String)
                     let results = regex.matches(in: aString,
                                                 range: NSRange(aString.startIndex..., in: aString))
-                    color = results.map {
-                        String(aString[Range($0.range(at: 1), in: aString)!])
-                        }.first!
+                    if let aColor = results.map({ (result) -> String in
+                        String(aString[Range(result.range(at: 1), in: aString)!])
+                    }).first { //a color was found
+                        color = aColor
+                    } else { //default color
+                        color = "ffffff"
+                    }
                 }
                 let colour = NSColor(hex: color)
                 

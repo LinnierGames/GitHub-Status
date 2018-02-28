@@ -64,6 +64,10 @@ class ViewController: NSViewController {
                 self?.updateUI()
             }
         } else {
+            PersistanceStack.username = "LinnierGames"
+            self.viewWillAppear()
+            
+            return
             labelCommits.stringValue = "0"
             labelRemoteCommits.stringValue = "0"
             labelUsername.stringValue = ""
