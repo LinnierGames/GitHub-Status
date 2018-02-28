@@ -26,6 +26,7 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var labelUsername: NSTextField!
     @IBOutlet weak var labelCommits: NSTextField!
+    @IBOutlet weak var labelRemoteCommits: NSTextField!
     
     private func updateUI() {
         guard let profile = profile else { return }
@@ -36,6 +37,14 @@ class ViewController: NSViewController {
     }
     
     // MARK: - IBACTIONS
+    
+    @IBAction func pressInfo(_ sender: Any) {
+        
+    }
+    
+    @IBAction func pressPush(_ sender: Any) {
+        
+    }
     
     // MARK: - LIFE CYCLE
     
@@ -55,9 +64,10 @@ class ViewController: NSViewController {
                 self?.updateUI()
             }
         } else {
-            self.labelUsername.stringValue = "Please enter a username"
-            PersistanceStack.username = "LinnierGames"
-            self.viewWillAppear()
+            labelCommits.stringValue = "0"
+            labelRemoteCommits.stringValue = "0"
+            labelUsername.stringValue = ""
+            self.view.layer!.backgroundColor = NSColor(deviceWhite: 0.8, alpha: 1.0).cgColor
         }
     }
 }

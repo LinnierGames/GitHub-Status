@@ -727,6 +727,9 @@
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="pressInfo:" target="zhn-cv-pdo" id="dGc-cD-yrv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <visibilityPriorities>
@@ -776,6 +779,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="pressPush:" target="zhn-cv-pdo" id="fck-oH-Wy1"/>
+                                        </connections>
                                     </button>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Dw-Xe-iY8">
                                         <rect key="frame" x="129" y="0.0" width="86" height="55"/>
@@ -838,6 +844,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="labelCommits" destination="6Ik-QX-4xM" id="c2a-BS-etM"/>
+                        <outlet property="labelRemoteCommits" destination="mmX-I4-FZr" id="eXS-R9-RGz"/>
                         <outlet property="labelUsername" destination="bS8-Uy-UJ6" id="Adf-DC-cI9"/>
                     </connections>
                 </viewController>
